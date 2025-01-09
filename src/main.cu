@@ -8,7 +8,7 @@ __global__ void hello_world() {
 
 int main() {
     hello_world<<<1, 64>>>();
-    // Ensure that the CPU wait for the GPC workers
+    // Ensure that the CPU wait for the GPU workers
     cudaDeviceSynchronize();
     return 0;
 }
