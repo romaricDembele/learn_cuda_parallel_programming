@@ -1,10 +1,14 @@
 # Cuda Parallel Programming Learning
 
+**Note**: 
+- The content under the folder **resource** is not mine. It is from **Hamdy Sultan**.
+- All the remaining content is mine.
+
 ## Environment Setup
 
 ### 1. Install WSL on Windows with Ubuntu distribution
 
-### 2. Install Visual Studio on Windows
+### 2. Install Visual Studio on Windows (Optional if using Visual Studio Code)
 Check the 3 Workload components in the installation process:
 - Desktop development with C++
 - Windows Application Development
@@ -50,13 +54,78 @@ sudo nano /etc/ld.so.conf
 sudo ldconfig
 ```
 
-### 4. Uninstall CUDA Toolkit from WSL
+### 4. Check the installation
+```bash
+# Check nvcc version
+nvcc --version
+```
+```bash
+# Check the GPU access
+nvdia-smi
+```
+
+### 5. (If necessary) Uninstall CUDA Toolkit from WSL
 ```bash
 # Run the binary file
 /usr/local/cuda-12.6/bin/cuda-uninstaller
 ```
 
+### 6. Support for vs-code
 
+#### Install the 2 extensions:
+- "ms-vscode.cpptools-extension-pack"
+- "nvidia.nsight-vscode-edition"
+
+#### Create a launch file (**.vscode/launch.json**) with the content
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CUDA C++: Launch",
+            "type": "cuda-gdb",
+            "request": "launch",
+            "program": "${workspaceFolder}/[path_to_program]"
+        },
+        {
+            "name": "CUDA C++: Attach",
+            "type": "cuda-gdb",
+            "request": "attach"
+        }
+    ]
+}
+```
+Replace **[path_to_program]** in the json above with your source code path. For example if your program entry is src/main.cu, then replace **[path_to_program]** by **src/main**.
+
+#### Add the CUDA include path to VS Code's IntelliSense
+Add the following file (**.vscode/c_cpp_properties.json**) with the json content:
+```json
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/local/cuda/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/local/cuda/bin/nvcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-clang-x64"
+        }
+    ],
+    "version": 4
+} 
+```
+
+### 7. Run the app
+```bash
+# Compile the app
+nvcc -o main src/main.cu
+# Run the binary app
+./main
+```
 
 ## Resources
 - [TOP500 Supercomputer List](https://www.top500.org/lists/top500/)
