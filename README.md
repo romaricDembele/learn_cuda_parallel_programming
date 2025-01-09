@@ -126,6 +126,10 @@ nvcc -o main src/main.cu
 # Run the binary app
 ./main
 ```
+```bash
+# Optionaly you can directly use the Makefile target "start" to compile and run the app
+make start
+```
 
 ## Resources
 - [TOP500 Supercomputer List](https://www.top500.org/lists/top500/)
