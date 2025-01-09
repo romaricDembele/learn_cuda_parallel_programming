@@ -1,7 +1,7 @@
 # Cuda Parallel Programming Learning
 
 **Note**: 
-- The content under the folder **resource** is not mine. It is from **Hamdy Sultan**.
+- The content under the folder **resources** is not mine. It is from **Hamdy Sultan**.
 - All the remaining content is mine.
 
 ## Environment Setup
