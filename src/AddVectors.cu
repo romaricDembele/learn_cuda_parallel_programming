@@ -1,24 +1,12 @@
 #include "cuda_runtime.h"
+#include "AddVectors.h"
 #include <stdio.h>
 
-// helloWorld Kernel definition
-__global__ void helloWorld() {
-    printf("\n[Block Id = %d] -- [Warp Id = %d] -- [Thread Id = %d]\n", blockIdx.x, threadIdx.x / 32, threadIdx.x);
-}
 
 // Add Two vectors Kernel definition
 __global__ void addVectors(int* A, int* B, int* C) {
     int i = threadIdx.x;
     C[i] = A[i] + B[i];
-}
-
-
-// HELLO WORLD PROGRAM
-void hello() {
-    helloWorld<<<1, 64>>>();
-    // Ensure that the CPU wait for the GPU workers to finish
-    // their jobs.
-    cudaDeviceSynchronize();
 }
 
 // ADDITION PROGRAM
@@ -82,10 +70,4 @@ void addition() {
     free(A);
     free(B);
     free(C);
-}
-
-int main() {
-    // hello();
-    addition();
-    return 0;
 }

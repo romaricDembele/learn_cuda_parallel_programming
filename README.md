@@ -121,13 +121,7 @@ Add the following file (**.vscode/c_cpp_properties.json**) with the json content
 
 ### 7. Run the app
 ```bash
-# Compile the app
-nvcc -o main src/main.cu
-# Run the binary app
-./main
-```
-```bash
-# Optionaly you can directly use the Makefile target "start" to compile and run the app
+# You can directly use the Makefile target "start" to compile and run the app
 make start
 ```
 
