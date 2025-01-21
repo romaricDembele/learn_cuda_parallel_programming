@@ -7,7 +7,7 @@
 
 int main() {
     // hello();
-    // addition();
-    getDeviceInfo();
+    addition();
+    // getDeviceInfo();
     return 0;
 }

@@ -125,6 +125,21 @@ Add the following file (**.vscode/c_cpp_properties.json**) with the json content
 make start
 ```
 
+### 8. Profiling the app
+You need to Enable GPU Performance Counters:
+- Open the NVIDIA Control Panel in the Windows host.
+- Enable Developer Settings under the Desktop tab in the Control Panal.
+    (Control Panel > Desktop > Enable Developer Settings)
+- Go to Manage GPU Performance Counters under the Developer section.
+    (Developer > Manage GPU Performance Counters)
+- Select "Allow access to the GPU performance counter to all users".
+    
+
+```bash
+# CUDA Kernel profiler (ncu - NVIDIA Nsight Compute CLI)
+make profile-kernel
+```
+
 ## Resources
 - [TOP500 Supercomputer List](https://www.top500.org/lists/top500/)
 - [TechPowerUp GPU Database](https://www.techpowerup.com/gpu-specs)

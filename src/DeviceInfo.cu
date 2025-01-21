@@ -19,6 +19,7 @@ void getDeviceInfo() {
 
         printf("GPU n°%d name = %s.\n", i, prop.name);
         printf("GPU n°%d threads/block max number = %d.\n", i, prop.maxThreadsPerBlock);
+        
     }
     
 }

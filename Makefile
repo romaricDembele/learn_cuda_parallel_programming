@@ -11,3 +11,6 @@ run:
 
 clean:
 	rm ${EXECUTATBLE_FILE}
+
+profile-kernel:
+	ncu ${EXECUTATBLE_FILE}
